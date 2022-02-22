@@ -8,7 +8,7 @@ var RecentCounter = function () {
  */
 RecentCounter.prototype.ping = function (t) {
   this.q.push(t);
-  while (t - this.q[0] < 3000) {
+  while (t - this.q[0] > 3000) {
     this.q.shift();
   }
   return this.q.length;
