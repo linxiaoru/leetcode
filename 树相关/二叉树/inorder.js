@@ -9,3 +9,23 @@ const inorder = (root) => {
   inorder(root.right);
 };
 inorder(bt);
+
+// 非递归版本 左、根、右
+const inorder2 = (root) => {
+  if (!root) {
+    return;
+  }
+  const stack = [];
+  let p = root;
+  while (stack.length || p) {
+    while (p) {
+      stack.push(p);
+      p = p.left;
+    }
+
+    const n = stack.pop();
+    console.log(n.val);
+    p = n.right;
+  }
+};
+inorder2(bt);

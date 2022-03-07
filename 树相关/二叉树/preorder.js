@@ -9,3 +9,22 @@ const preorder = (root) => {
   preorder(root.right);
 };
 preorder(bt);
+
+// 非递归版本
+const preorder2 = (root) => {
+  if (!root) {
+    return;
+  }
+  const stack = [root];
+  while (stack.length) {
+    const n = stack.pop();
+    console.log(n.val);
+    if (n.right) {
+      stack.push(n.right);
+    }
+    if (n.left) {
+      stack.push(n.left);
+    }
+  }
+};
+preorder2(bt);
